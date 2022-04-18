@@ -1,0 +1,79 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态页面</title>
+    <link rel="stylesheet" href="demo02_1.css">
+    <script type="text/javascript" src="demo02_1.js"></script>
+</head>
+<body>
+<div id="div_container">
+    <div id="div_fruit_list">
+        <table id="tbl_fruit">
+            <tr>
+                <th>名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>苹果</td>
+                <td>5</td>
+                <td>20</td>
+                <td>100</td>
+                <td><img src="del.jpg" class="del_img"></td>
+            </tr>
+            <tr>
+                <td>西瓜</td>
+                <td>3</td>
+                <td>20</td>
+                <td>60</td>
+                <td><img src="del.jpg" class="del_img"></td>
+            </tr>
+            <tr>
+                <td>菠萝</td>
+                <td>4</td>
+                <td>25</td>
+                <td>100</td>
+                <td><img src="del.jpg" class="del_img"></td>
+            </tr>
+            <tr>
+                <td>榴莲</td>
+                <td>3</td>
+                <td>30</td>
+                <td>90</td>
+                <td><img src="del.jpg" class="del_img"></td>
+            </tr>
+            <tr>
+                <td>总计</td>
+                <td colspan="4">350</td>
+            </tr>
+        </table>
+
+    </div>
+    <br/>
+    <hr/>
+
+    <div id="div_add_fruit">
+        <table id="tbl_add">
+            <tr>
+                <td class="w30">名称：</td>
+                <td><input class="input" type="text" id="fname" value="apple"></td>
+            </tr>
+            <tr>
+                <td>单价：</td>
+                <td><input class="input" type="text" id="fprice" value="5"></td>
+            </tr>
+            <tr>
+                <td>数量：</td>
+                <td><input class="input" type="text" id="fcount" value="100"></td>
+            </tr>
+            <tr>
+                <th colspan="2"><input id="add" type=button class="btn" value="添加"><input id="reset" type=reset class="btn" value="重置"></th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

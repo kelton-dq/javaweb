@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签学习</title>
+</head>
+<body>
+<!--type表示文本框，name必填-->
+<form action="demo04_1.html" method="post">
+    昵称：<input type="text" name="nickName" value="字母和数字组成"><br/>
+    密码：<input type="password" name="pwd"><br/>
+    性别：<input type="radio" name="gender" value="male" checked>男
+    <input type="radio" name="gender" value="female">女<br/>
+    爱好：<input type="checkbox" name="hobby" value="basketball" checked>篮球
+    <input type="checkbox" name="hobby" value="football">足球
+    <input type="checkbox" name="hobby" value="tennis">网球<br/>
+    星座：<select name="star">
+    <option value="1">白羊座</option>
+    <option value="2" selected>狮子座</option>
+    <option value="3">射手座</option>
+    <option value="4">双子座</option>
+    <option value="5">天秤座</option>
+    </select><br/>
+    备注：<textarea name="remark" rows="4" cols="50">标签之间的即为value值</textarea><br/>
+    <input type="submit" value=" 注 册 ">
+    <input type="reset" value=" 重 置 ">
+    <input type="button" value="普通按钮">
+
+</form>
+</body>
+</html>

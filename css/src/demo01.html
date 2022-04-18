@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <!--I.内部样式表-->
+    <style type="text/css">
+        /*CSS样式表，style标签包围的范围内是CSS环境，可以写CSS代码*/
+
+        /*1.标签样式表*/
+        p{
+            color: red;
+        }
+        /*2.类样式表*/
+        .f20{
+            font-size: 20px;
+        }
+        /*3.id样式表，id属性在整个html中尽量唯一*/
+        #p3{
+            background-color: pink;
+            font-size: 24px;
+            font-weight: bolder;
+            font-style: italic;
+            font-family: "华文彩云";
+        }
+        /*4.组合样式表*/
+        div p{
+            color: dodgerblue;
+        }
+
+    </style>
+    <!--II.引用外部样式表-->
+    <link rel="stylesheet" href="demo01.css">
+</head>
+
+<body>
+<!--淘汰的标签-->
+<p><font color="red">段落一</font></p>
+<p><font color="red">段落二</font></p>
+
+<!--使用CSS-->
+<p>段落一</p>
+<p class="f20">段落二</p>
+<p id="p3">段落三</p>
+
+<!--组合样式-->
+<div>
+    <!--III.嵌入式样式表-->
+    <p><span style="font-size: 40px; font-weight: bolder; font-family: 黑体; color: lawngreen">HELLO</span></p>
+    <span class="f32">WORLD</span>
+    <p>!!!</p>
+</div>
+
+</body>
+</html>

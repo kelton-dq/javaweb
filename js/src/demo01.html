@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js语法</title>
+    <!--javascript是客户端的一个弱类型脚本语言-->
+    <script language="JavaScript">
+        //1.基本数据类型
+        var str = "hello world";
+        alert(typeof str);//String
+        str = 999;
+        alert(typeof str);//number,类型由赋值决定
+        //2.引用数据类型
+        var person = new Object();
+        person.name = "张三";
+        person.id = 1;
+        alert(person.id + "_" + person.name);
+        //3.函数
+        function hello(num1, num2, name) {
+            if(num1 > num2){
+                return "Hello " + name;
+            }else {
+                alert("Hello");
+            }
+        }
+        hello();
+        hello(1);
+        hello(2, 1, "dd");
+        hello(1, 2, 3, 4, "anyway");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

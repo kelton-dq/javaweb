@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style type="text/css">
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        #div1{
+            width: 400px;
+            height: 400px;
+            background-color: greenyellow;
+
+            /*border 边框样式*/
+            /*border-width: 4px;          !*边框粗细、线形、颜色*!*/
+            /*border-style: dotted;*/
+            /*border-color: dodgerblue;*/
+            /*合并设置*/
+            border: 4px double dodgerblue;
+        }
+
+        #div2{
+            width: 150px;
+            height: 150px;
+            background-color: orange;
+
+            /*margin-top: 100px;*/
+            /*margin-left: 100px;*/
+            /*一个：上下左右；两个：上下、左右；三个：上右下左*/
+            margin: 100px;
+
+            /*填充 chrome实际显示尺寸=width + 左右borderwidth + padding*/
+            padding-top: 50px;
+            padding-left: 50px;
+        }
+
+        #div3{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            /*margin-top: 50px;*/
+            /*margin-left: 50px;*/
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3">&nbsp;</div>
+    </div>
+</div>
+</body>
+</html>

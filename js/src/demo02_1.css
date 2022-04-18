@@ -1,0 +1,82 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: gray;
+}
+
+div {
+    position: relative;
+    float: left;
+}
+
+#tbl_fruit {
+    width: 60%;
+    line-height: 28px;
+    margin-top: 120px;
+    margin-left: 20%;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.del_img {
+    width: 24px;
+    height: 24px;
+}
+
+#div_container {
+    width: 80%;
+    height: 100%;
+    border: 0px solid black;
+    margin-left: 10%;
+    background-color: honeydew;
+    border-radius: 8px;
+}
+
+#div_fruit_list {
+    width: 100%;
+}
+
+#tbl_fruit tr, #tbl_fruit th, #tbl_fruit td {
+    width: 20%;
+    border: 1px solid gray;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 16px;
+    font-family: 黑体;
+    font-weight: lighter;
+    color: cornflowerblue;
+}
+
+.btn{
+    width: 80px;
+    height: 24px;
+}
+
+#div_add_fruit {
+    border: 0px solid red;
+    width: 40%;
+    margin-left: 30%;
+}
+
+#tbl_add{
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#tbl_add tr, #tbl_add td {
+    border: 1px solid lightblue;
+    text-align: center;
+    line-height: 28px;
+}
+
+.w30{
+    width: 30%;
+}
+
+.input{
+    padding-left: 4px;
+    border: 1px solid lightgray;
+    width: 90%;
+}
