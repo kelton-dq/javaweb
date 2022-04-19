@@ -20,6 +20,8 @@ public class AddServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //设置字符编码，以防乱码，在获取参数之前
+        req.setCharacterEncoding("UTF-8");
         String fname = req.getParameter("fname");
         Integer fprice = Integer.parseInt(req.getParameter("fprice"));
         Integer fcount = Integer.parseInt(req.getParameter("fcount"));
