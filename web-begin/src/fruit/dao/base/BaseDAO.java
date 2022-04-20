@@ -1,6 +1,8 @@
 
 package fruit.dao.base;
 
+import fruit.dao.impl.FruitDAOImpl;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -38,7 +40,7 @@ public abstract class BaseDAO<T> {
 
     protected Connection getConn(){
         try {
-            InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("jdbc.properties");
+            InputStream is = FruitDAOImpl.class.getClassLoader().getResourceAsStream("jdbc.properties");
             Properties pros = new Properties();
             pros.load(is);
 
