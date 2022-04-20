@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>SDemo01</servlet-name>
+        <servlet-class>ServletDemo01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo01</servlet-name>
+        <url-pattern>/demo01</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SDemo02</servlet-name>
+        <servlet-class>ServletDemo02</servlet-class>
+        <!--<load-on-startup>1</load-on-startup>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo02</servlet-name>
+        <url-pattern>/demo02</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SDemo03</servlet-name>
+        <servlet-class>ServletDemo03</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo03</servlet-name>
+        <url-pattern>/demo03</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SDemo041</servlet-name>
+        <servlet-class>ServletDemo04_1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo041</servlet-name>
+        <url-pattern>/demo041</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SDemo042</servlet-name>
+        <servlet-class>ServletDemo04_2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo042</servlet-name>
+        <url-pattern>/demo042</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SDemo051</servlet-name>
+        <servlet-class>ServletDemo05_1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo051</servlet-name>
+        <url-pattern>/demo051</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SDemo052</servlet-name>
+        <servlet-class>ServletDemo05_2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo052</servlet-name>
+        <url-pattern>/demo052</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SDemo053</servlet-name>
+        <servlet-class>ServletDemo05_3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SDemo053</servlet-name>
+        <url-pattern>/demo053</url-pattern>
+    </servlet-mapping>
+</web-app>
