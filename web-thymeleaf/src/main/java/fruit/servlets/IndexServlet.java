@@ -10,7 +10,7 @@ package fruit.servlets;
 import fruit.dao.FruitDAO;
 import fruit.dao.impl.FruitDAOImpl;
 import fruit.pojo.Fruit;
-import myssm.basedao.myspringmvc.ViewBaseServlet;
+import myssm.myspringmvc.ViewBaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
