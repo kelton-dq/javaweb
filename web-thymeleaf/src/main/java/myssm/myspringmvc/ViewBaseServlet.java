@@ -5,7 +5,7 @@
  * Date: 2022/4/20 22:39
  * Description: servlet基类
  */
-package myssm.basedao.myspringmvc;
+package myssm.myspringmvc;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
