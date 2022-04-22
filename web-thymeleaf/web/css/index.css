@@ -60,6 +60,18 @@ div {
     height: 24px;
 }
 
+#div_page{
+    border: 0px solid red;
+    width: 60%;
+    margin-left: 20%;
+    padding-top: 4px;
+    text-align: right;
+}
+
+#search_form{
+    float: left;
+}
+
 #div_add_fruit {
     border: 0px solid red;
     width: 60%;
@@ -71,6 +83,7 @@ div {
     text-decoration: none;
     border: 0px solid cornflowerblue;
     margin-bottom: 4px;
+    float: right;
 }
 
 #tbl_add{
@@ -88,6 +101,10 @@ div {
 
 .w30{
     width: 30%;
+}
+
+.w20{
+    width: 20px;
 }
 
 .input{
