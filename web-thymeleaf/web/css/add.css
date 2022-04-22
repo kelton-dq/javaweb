@@ -62,15 +62,8 @@ div {
 
 #div_add_fruit {
     border: 0px solid red;
-    width: 60%;
-    margin-left: 20%;
-    text-align: right;
-}
-
-#add{
-    text-decoration: none;
-    border: 0px solid cornflowerblue;
-    margin-bottom: 4px;
+    width: 40%;
+    margin-left: 30%;
 }
 
 #tbl_add{
@@ -88,6 +81,10 @@ div {
 
 .w30{
     width: 30%;
+}
+
+.w20{
+    width: 20%;
 }
 
 .input{
