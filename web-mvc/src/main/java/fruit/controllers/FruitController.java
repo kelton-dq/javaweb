@@ -36,24 +36,27 @@ public class FruitController{
         }
     }*/
 
-    private String index(HttpServletRequest req) throws IOException {
+    private String index(String oper, String keyword, Integer pageNo, HttpServletRequest req){
 
-        String oper = req.getParameter("oper");
+//        String oper = req.getParameter("oper");
 
-        Integer pageNo = 1;
+//        Integer pageNo = 1;
+        if(pageNo ==null){
+            pageNo = 1;
+        }
         HttpSession session = req.getSession();
-        String keyword = null;
+//        String keyword = null;
         if (!StringUtil.isEmpty(oper) && "search".equals(oper)) {
-            keyword = req.getParameter("keyword");
+//            keyword = req.getParameter("keyword");
             if (StringUtil.isEmpty(keyword)) {
                 keyword = "";
             }
             session.setAttribute("keyword", keyword);
         } else {
-            String pageNoStr = req.getParameter("pageNo");
-            if (!StringUtil.isEmpty(pageNoStr)) {
-                pageNo = Integer.parseInt(pageNoStr);
-            }
+//            String pageNoStr = req.getParameter("pageNo");
+//            if (!StringUtil.isEmpty(pageNoStr)) {
+//                pageNo = Integer.parseInt(pageNoStr);
+//            }
             Object keywordObj = session.getAttribute("keyword");
             if (keywordObj != null) {
                 keyword = (String) keywordObj;
@@ -77,11 +80,11 @@ public class FruitController{
         return "index";
     }
 
-    private String add(HttpServletRequest req) throws IOException {
-        String fname = req.getParameter("fname");
-        int fprice = Integer.parseInt(req.getParameter("fprice"));
-        int fcount = Integer.parseInt(req.getParameter("fcount"));
-        String remark = req.getParameter("remark");
+    private String add(String fname, Integer fprice, Integer fcount, String remark){
+//        String fname = req.getParameter("fname");
+//        int fprice = Integer.parseInt(req.getParameter("fprice"));
+//        int fcount = Integer.parseInt(req.getParameter("fcount"));
+//        String remark = req.getParameter("remark");
 
         fruitDAO.addFruit(new Fruit(0, fname, fprice, fcount, remark));
 
@@ -90,38 +93,47 @@ public class FruitController{
 
     }
 
-    private String del(HttpServletRequest req) throws IOException {
-        String fidStr = req.getParameter("fid");
-        if (!StringUtil.isEmpty(fidStr)) {
-            int fid = Integer.parseInt(fidStr);
+    private String del(Integer fid){
+//        String fidStr = req.getParameter("fid");
+//        if (!StringUtil.isEmpty(fidStr)) {
+//            int fid = Integer.parseInt(fidStr);
+//            fruitDAO.delFruit(fid);
+//
+////            resp.sendRedirect("fruit.do");
+//            return "redirect:fruit.do";
+//
+//        }
+        if(fid != null){
             fruitDAO.delFruit(fid);
-
-//            resp.sendRedirect("fruit.do");
             return "redirect:fruit.do";
-
         }
         return "error";
     }
 
-    private String edit(HttpServletRequest req) throws IOException {
-        String fidStr = req.getParameter("fid");
-        if (!StringUtil.isEmpty(fidStr)) {
-            int fid = Integer.parseInt(fidStr);
+    private String edit(Integer fid, HttpServletRequest req){
+//        String fidStr = req.getParameter("fid");
+//        if (!StringUtil.isEmpty(fidStr)) {
+//            int fid = Integer.parseInt(fidStr);
+//            Fruit fruit = fruitDAO.getFruitByFid(fid);
+//            req.setAttribute("fruit", fruit);
+////            super.processTemplate("edit", req, resp);
+//            return "edit";
+//        }
+        if(fid != null){
             Fruit fruit = fruitDAO.getFruitByFid(fid);
             req.setAttribute("fruit", fruit);
-//            super.processTemplate("edit", req, resp);
             return "edit";
         }
         return "error";
     }
 
-    private String update(HttpServletRequest req) throws IOException {
+    private String update(Integer fid, String fname, Integer fprice, Integer fcount, String remark){
 
-        int fid = Integer.parseInt(req.getParameter("fid"));
-        String fname = req.getParameter("fname");
-        int fprice = Integer.parseInt(req.getParameter("fprice"));
-        int fcount = Integer.parseInt(req.getParameter("fcount"));
-        String remark = req.getParameter("remark");
+//        int fid = Integer.parseInt(req.getParameter("fid"));
+//        String fname = req.getParameter("fname");
+//        int fprice = Integer.parseInt(req.getParameter("fprice"));
+//        int fcount = Integer.parseInt(req.getParameter("fcount"));
+//        String remark = req.getParameter("remark");
 
         fruitDAO.updateFruit(new Fruit(fid, fname, fprice, fcount, remark));
         //跳转回index页面
