@@ -85,17 +85,17 @@ public class DispatcherServlet extends ViewBaseServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-
+        //定位controller
         String servletPath = req.getServletPath().substring(1);
         int lastDotIndex = servletPath.lastIndexOf(".do");
         servletPath = servletPath.substring(0, lastDotIndex);
         Object controllerBeanObj = beanMap.get(servletPath);
-
+        //定位operate
         String operate = req.getParameter("operate");
         if (StringUtil.isEmpty(operate)) {
             operate = "index";
         }
-
+        //获取并执行方法（与http相关的操作提取到方法外，方法内只执行数据操作，获取数据和页面渲染、重定向均提取出来）
         try {
             Method[] methods = controllerBeanObj.getClass().getDeclaredMethods();
             for(Method method : methods){
