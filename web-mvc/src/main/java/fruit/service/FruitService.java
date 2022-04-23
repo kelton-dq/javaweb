@@ -1,4 +1,4 @@
-package fruit.biz;
+package fruit.service;
 
 import fruit.pojo.Fruit;
 

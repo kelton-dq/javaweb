@@ -5,9 +5,9 @@
  * Date: 2022/4/23 16:16
  * Description: 业务层BO对DAO调用，实现组合功能
  */
-package fruit.biz.impl;
+package fruit.service.impl;
 
-import fruit.biz.FruitService;
+import fruit.service.FruitService;
 import fruit.dao.FruitDAO;
 import fruit.dao.impl.FruitDAOImpl;
 import fruit.pojo.Fruit;

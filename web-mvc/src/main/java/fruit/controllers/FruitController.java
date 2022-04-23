@@ -7,20 +7,13 @@
  */
 package fruit.controllers;
 
-import fruit.biz.FruitService;
-import fruit.biz.impl.FruitServiceImpl;
-import fruit.dao.FruitDAO;
-import fruit.dao.impl.FruitDAOImpl;
+import fruit.service.FruitService;
+import fruit.service.impl.FruitServiceImpl;
 import fruit.pojo.Fruit;
-import myssm.myspringmvc.ViewBaseServlet;
 import myssm.util.StringUtil;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 
 public class FruitController {
