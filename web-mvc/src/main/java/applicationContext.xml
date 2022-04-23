@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans>
+    <!--对应关系，将path对应到controller-->
+    <bean id="fruit" class="fruit.controllers.FruitController"/>
+</beans>
+
+<!--
+XML:可扩展的标记语言
+1 声明（必须在第一行）
+2 DTD文档类型定义
+3 XML正文
+-->
