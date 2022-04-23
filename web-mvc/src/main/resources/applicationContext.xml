@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans>
+    <!--IOC, 设置 组件 和 实际类 的对应关系-->
+    <!--对应关系，将path对应到controller-->
+    <bean id="fruit" class="fruit.controllers.FruitController">
+        <!--表示属性,name为属性名,ref为指向的组件id,指明依赖关系-->
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
+    <bean id="fruitService" class="fruit.service.impl.FruitServiceImpl">
+        <property name="fruitDAO" ref="fruitDAO"/>
+    </bean>
+    <bean id="fruitDAO" class="fruit.dao.impl.FruitDAOImpl"/>
+</beans>
+
+<!--
+XML:可扩展的标记语言
+1 声明（必须在第一行）
+2 DTD文档类型定义
+3 XML正文
+4 节点Node
+  元素节点Element
+  文本节点Text
+-->

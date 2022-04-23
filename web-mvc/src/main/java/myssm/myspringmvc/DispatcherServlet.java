@@ -7,6 +7,8 @@
  */
 package myssm.myspringmvc;
 
+import myssm.io.BeanFactory;
+import myssm.io.ClassPathXmlApplicationContext;
 import myssm.util.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -36,7 +38,8 @@ import java.util.Map;
 @WebServlet("*.do")
 public class DispatcherServlet extends ViewBaseServlet {
 
-    private Map<String, Object> beanMap = new HashMap<>();
+//    private Map<String, Object> beanMap = new HashMap<>();
+    private BeanFactory beanFactory;
 
     public DispatcherServlet(){
 
@@ -44,6 +47,8 @@ public class DispatcherServlet extends ViewBaseServlet {
 
     public void init() throws ServletException {
         super.init();
+        beanFactory  = new ClassPathXmlApplicationContext();
+/*
         try {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("applicationContext.xml");
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -79,6 +84,7 @@ public class DispatcherServlet extends ViewBaseServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+*/
 
     }
 
@@ -89,7 +95,8 @@ public class DispatcherServlet extends ViewBaseServlet {
         String servletPath = req.getServletPath().substring(1);
         int lastDotIndex = servletPath.lastIndexOf(".do");
         servletPath = servletPath.substring(0, lastDotIndex);
-        Object controllerBeanObj = beanMap.get(servletPath);
+//        Object controllerBeanObj = beanMap.get(servletPath);
+        Object controllerBeanObj = beanFactory.getBean(servletPath);
         //定位operate
         String operate = req.getParameter("operate");
         if (StringUtil.isEmpty(operate)) {

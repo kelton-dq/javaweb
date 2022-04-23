@@ -16,7 +16,8 @@ import java.util.List;
 
 public class FruitServiceImpl implements FruitService {
 
-    private FruitDAO fruitDAO = new FruitDAOImpl();
+//    private FruitDAO fruitDAO = new FruitDAOImpl();
+    private FruitDAO fruitDAO = null;
 
     @Override
     public List<Fruit> getFruitList(String keyword, Integer pageNo) {

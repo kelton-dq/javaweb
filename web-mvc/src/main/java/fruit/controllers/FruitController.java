@@ -19,7 +19,8 @@ import java.util.List;
 public class FruitController {
 
     //    private FruitDAO fruitDAO = new FruitDAOImpl();
-    private FruitService fruitService = new FruitServiceImpl();
+//    private FruitService fruitService = new FruitServiceImpl();
+    private FruitService fruitService = null;
 /*    private ServletContext servletContext;
 
     public void setServletContext(ServletContext servletContext) {
