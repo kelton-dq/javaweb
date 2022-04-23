@@ -7,6 +7,8 @@
  */
 package fruit.controllers;
 
+import fruit.biz.FruitService;
+import fruit.biz.impl.FruitServiceImpl;
 import fruit.dao.FruitDAO;
 import fruit.dao.impl.FruitDAOImpl;
 import fruit.pojo.Fruit;
@@ -21,10 +23,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-public class FruitController{
+public class FruitController {
 
-    private FruitDAO fruitDAO = new FruitDAOImpl();
-
+    //    private FruitDAO fruitDAO = new FruitDAOImpl();
+    private FruitService fruitService = new FruitServiceImpl();
 /*    private ServletContext servletContext;
 
     public void setServletContext(ServletContext servletContext) {
@@ -36,12 +38,12 @@ public class FruitController{
         }
     }*/
 
-    private String index(String oper, String keyword, Integer pageNo, HttpServletRequest req){
+    private String index(String oper, String keyword, Integer pageNo, HttpServletRequest req) {
 
 //        String oper = req.getParameter("oper");
 
 //        Integer pageNo = 1;
-        if(pageNo ==null){
+        if (pageNo == null) {
             pageNo = 1;
         }
         HttpSession session = req.getSession();
@@ -68,10 +70,10 @@ public class FruitController{
 
         session.setAttribute("pageNo", pageNo);
 
-        FruitDAO fruitDAO = new FruitDAOImpl();
-        List<Fruit> fruitList = fruitDAO.getFruitList(keyword, pageNo);
-        int fruitCount = fruitDAO.getFruitCount(keyword);
-        session.setAttribute("pageCount", (fruitCount + 4) / 5);
+        List<Fruit> fruitList = fruitService.getFruitList(keyword, pageNo);
+//        int fruitCount = fruitDAO.getFruitCount(keyword);
+//        session.setAttribute("pageCount", (fruitCount + 4) / 5);
+        session.setAttribute("pageCount", fruitService.getPageCount(keyword));
         //保存到session作用域
         session.setAttribute("fruitList", fruitList);
         //逻辑视图名称为index，thymeleaf会将逻辑视图名称对应到物理视图名称上去
@@ -80,20 +82,20 @@ public class FruitController{
         return "index";
     }
 
-    private String add(String fname, Integer fprice, Integer fcount, String remark){
+    private String add(String fname, Integer fprice, Integer fcount, String remark) {
 //        String fname = req.getParameter("fname");
 //        int fprice = Integer.parseInt(req.getParameter("fprice"));
 //        int fcount = Integer.parseInt(req.getParameter("fcount"));
 //        String remark = req.getParameter("remark");
 
-        fruitDAO.addFruit(new Fruit(0, fname, fprice, fcount, remark));
+        fruitService.addFruit(new Fruit(0, fname, fprice, fcount, remark));
 
 //        resp.sendRedirect("fruit.do");
         return "redirect:fruit.do";
 
     }
 
-    private String del(Integer fid){
+    private String del(Integer fid) {
 //        String fidStr = req.getParameter("fid");
 //        if (!StringUtil.isEmpty(fidStr)) {
 //            int fid = Integer.parseInt(fidStr);
@@ -103,14 +105,14 @@ public class FruitController{
 //            return "redirect:fruit.do";
 //
 //        }
-        if(fid != null){
-            fruitDAO.delFruit(fid);
+        if (fid != null) {
+            fruitService.delFruit(fid);
             return "redirect:fruit.do";
         }
         return "error";
     }
 
-    private String edit(Integer fid, HttpServletRequest req){
+    private String edit(Integer fid, HttpServletRequest req) {
 //        String fidStr = req.getParameter("fid");
 //        if (!StringUtil.isEmpty(fidStr)) {
 //            int fid = Integer.parseInt(fidStr);
@@ -119,15 +121,15 @@ public class FruitController{
 ////            super.processTemplate("edit", req, resp);
 //            return "edit";
 //        }
-        if(fid != null){
-            Fruit fruit = fruitDAO.getFruitByFid(fid);
+        if (fid != null) {
+            Fruit fruit = fruitService.getFruitByFid(fid);
             req.setAttribute("fruit", fruit);
             return "edit";
         }
         return "error";
     }
 
-    private String update(Integer fid, String fname, Integer fprice, Integer fcount, String remark){
+    private String update(Integer fid, String fname, Integer fprice, Integer fcount, String remark) {
 
 //        int fid = Integer.parseInt(req.getParameter("fid"));
 //        String fname = req.getParameter("fname");
@@ -135,7 +137,7 @@ public class FruitController{
 //        int fcount = Integer.parseInt(req.getParameter("fcount"));
 //        String remark = req.getParameter("remark");
 
-        fruitDAO.updateFruit(new Fruit(fid, fname, fprice, fcount, remark));
+        fruitService.updateFruit(new Fruit(fid, fname, fprice, fcount, remark));
         //跳转回index页面
 //        resp.sendRedirect("fruit.do");
         return "redirect:fruit.do";

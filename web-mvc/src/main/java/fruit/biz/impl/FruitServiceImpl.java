@@ -29,7 +29,7 @@ public class FruitServiceImpl implements FruitService {
     }
 
     @Override
-    public Fruit getFruitById(Integer fid) {
+    public Fruit getFruitByFid(Integer fid) {
         return fruitDAO.getFruitByFid(fid);
     }
 
@@ -41,5 +41,10 @@ public class FruitServiceImpl implements FruitService {
     @Override
     public Integer getPageCount(String keyword) {
         return (fruitDAO.getFruitCount(keyword) + 4) / 5;
+    }
+
+    @Override
+    public void updateFruit(Fruit fruit) {
+        fruitDAO.updateFruit(fruit);
     }
 }
