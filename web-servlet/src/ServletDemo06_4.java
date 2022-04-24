@@ -10,7 +10,7 @@ import java.io.IOException;
  * FileName: ServletDemo06_4
  * Author: Dingq
  * Date: 2022/4/21 16:14
- * Description: application保存作用域
+ * Description: application(ServletContext)保存作用域
  */
 @WebServlet("/demo064")
 public class ServletDemo06_4 extends HttpServlet {
