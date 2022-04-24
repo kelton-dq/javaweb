@@ -90,7 +90,7 @@ public class DispatcherServlet extends ViewBaseServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-8");
         //定位controller
         String servletPath = req.getServletPath().substring(1);
         int lastDotIndex = servletPath.lastIndexOf(".do");
