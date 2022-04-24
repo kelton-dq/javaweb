@@ -7,33 +7,18 @@
  */
 package myssm.myspringmvc;
 
-import myssm.io.BeanFactory;
-import myssm.io.ClassPathXmlApplicationContext;
+import myssm.ioc.BeanFactory;
 import myssm.util.StringUtil;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet("*.do")
 public class DispatcherServlet extends ViewBaseServlet {
@@ -47,7 +32,15 @@ public class DispatcherServlet extends ViewBaseServlet {
 
     public void init() throws ServletException {
         super.init();
-        beanFactory  = new ClassPathXmlApplicationContext();
+//        将IOC初始化移动到ServletContext对象创建时完成
+//        beanFactory  = new ClassPathXmlApplicationContext();
+        ServletContext application = getServletContext();
+        Object beanFactoryObj = application.getAttribute("beanFactory");
+        if(beanFactoryObj != null){
+            beanFactory = (BeanFactory) beanFactoryObj;
+        }else {
+            throw new RuntimeException("IOC容器获取失败！");
+        }
 /*
         try {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("applicationContext.xml");

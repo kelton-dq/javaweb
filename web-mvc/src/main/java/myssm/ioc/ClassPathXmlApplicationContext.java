@@ -5,8 +5,9 @@
  * Date: 2022/4/23 16:55
  * Description: 实现beanfactory
  */
-package myssm.io;
+package myssm.ioc;
 
+import myssm.util.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -25,10 +26,18 @@ import java.util.Map;
 public class ClassPathXmlApplicationContext implements BeanFactory {
 
     private Map<String, Object> beanMap = new HashMap<>();
+    private static String path = "applicationContext.xml";
 
     public ClassPathXmlApplicationContext(){
+        this(path);
+    }
+
+    public ClassPathXmlApplicationContext(String path){
+        if(StringUtil.isEmpty(path)){
+            throw new RuntimeException("IOC容器配置文件未指定！");
+        }
         try {
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("applicationContext.xml");
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.parse(inputStream);
