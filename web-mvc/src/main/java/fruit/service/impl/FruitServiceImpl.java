@@ -11,6 +11,7 @@ import fruit.service.FruitService;
 import fruit.dao.FruitDAO;
 import fruit.dao.impl.FruitDAOImpl;
 import fruit.pojo.Fruit;
+import myssm.basedao.ConnUtil;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public List<Fruit> getFruitList(String keyword, Integer pageNo) {
+//        System.out.println("getFruitList -> " + ConnUtil.getConn());
         return fruitDAO.getFruitList(keyword, pageNo);
     }
 
@@ -41,6 +43,7 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public Integer getPageCount(String keyword) {
+//        System.out.println("getPageCount -> " + ConnUtil.getConn());
         return (fruitDAO.getFruitCount(keyword) + 4) / 5;
     }
 

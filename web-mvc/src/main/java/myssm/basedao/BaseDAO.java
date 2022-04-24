@@ -39,24 +39,7 @@ public abstract class BaseDAO<T> {
     }
 
     protected Connection getConn(){
-        try {
-            InputStream is = FruitDAOImpl.class.getClassLoader().getResourceAsStream("jdbc.properties");
-            Properties pros = new Properties();
-            pros.load(is);
-
-            String user = pros.getProperty("user");
-            String password = pros.getProperty("password");
-            String url = pros.getProperty("url");
-            String driverClass = pros.getProperty("driverClass");
-
-            //1.加载驱动
-            Class.forName(driverClass);
-            //2.通过驱动管理器获取连接对象
-            return DriverManager.getConnection(url, user, password);
-        } catch (ClassNotFoundException | SQLException | IOException e) {
-            e.printStackTrace();
-        }
-        return null ;
+        return ConnUtil.getConn();
     }
 
     protected void close(ResultSet rs , PreparedStatement psmt , Connection conn){
@@ -67,9 +50,9 @@ public abstract class BaseDAO<T> {
             if(psmt!=null){
                 psmt.close();
             }
-            if(conn!=null && !conn.isClosed()){
-                conn.close();
-            }
+//            if(conn!=null && !conn.isClosed()){
+//                conn.close();
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
