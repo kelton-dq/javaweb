@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean*)>
+        <!ELEMENT bean (property*)>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #IMPLIED>
+        <!ATTLIST property name CDATA #IMPLIED>
+        <!ATTLIST property ref IDREF #IMPLIED>
+]>
+
+<beans>
+    <!--IOC, 设置 组件 和 实际类 的对应关系-->
+    <!--对应关系，将path对应到controller-->
+<!--
+    <bean id="fruit" class="fruit.controllers.FruitController">
+        &lt;!&ndash;表示属性,name为属性名,ref为指向的组件id,指明依赖关系&ndash;&gt;
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
+-->
+
+    <bean id="userBasicDAO" class="zone.dao.impl.UserBasicDAOImpl"/>
+    <bean id="topicDAO" class="zone.dao.impl.TopicDAOImpl"/>
+    <bean id="replyDAO" class="zone.dao.impl.ReplyDAOImpl"/>
+    <bean id="hostReplyDAO" class="zone.dao.impl.HostReplyDAOImpl"/>
+
+    <bean id="userBasicService" class="zone.service.impl.UserBasicServiceImpl">
+        <property name="userBasicDAO" ref="userBasicDAO"/>
+    </bean>
+    <bean id="topicService" class="zone.service.impl.TopicServiceImpl">
+        <property name="topicDAO" ref="topicDAO"/>
+        <property name="replyService" ref="replyService"/>
+        <property name="userBasicService" ref="userBasicService"/>
+    </bean>
+    <bean id="replyService" class="zone.service.impl.ReplyServiceImpl">
+        <property name="replyDAO" ref="replyDAO"/>
+        <property name="hostReplyService" ref="hostReplyService"/>
+        <property name="userBasicService" ref="userBasicService"/>
+    </bean>
+    <bean id="hostReplyService" class="zone.service.impl.HostReplyServiceImpl">
+        <property name="hostReplyDAO" ref="hostReplyDAO"/>
+    </bean>
+
+    <bean id="user" class="zone.controller.UserController">
+        <property name="userBasicService" ref="userBasicService"/>
+        <property name="topicService" ref="topicService"/>
+    </bean>
+
+    <bean id="topic" class="zone.controller.TopicController">
+        <property name="topicService" ref="topicService"/>
+    </bean>
+    <bean id="reply" class="zone.controller.ReplyController">
+        <property name="replyService" ref="replyService"/>
+    </bean>
+
+    <bean id="page" class="myssm.myspringmvc.PageController"/>
+</beans>
+
+<!--
+XML:可扩展的标记语言
+1 声明（必须在第一行）
+2 DTD文档类型定义
+3 XML正文
+4 节点Node
+  元素节点Element
+  文本节点Text
+-->
