@@ -132,6 +132,8 @@ public abstract class BaseDAO<T> {
             return false;
         }else if("java.time.LocalDateTime".equals(typeName)){
             return false;
+        }else if("java.lang.Double".equals(typeName)){
+            return false;
         }
 
         return true;
