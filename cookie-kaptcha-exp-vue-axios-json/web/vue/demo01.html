@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://unpkg.com/vue@next"></script>-->
+    <script language="JavaScript" src="../script/vue.js"></script>
+    <script language="JavaScript">
+        window.onload = function () {
+            var vue = new Vue({
+                "el": "#div0",
+                data: {
+                    msg: "hello world!",
+                    uname: "dd",
+                    num: 1,
+                    fruitList:[
+                        {fname:"苹果",fprice:5,fcount:100,remark:"dd"},
+                        {fname:"香蕉",fprice:4,fcount:100,remark:"dd"},
+                        {fname:"橘子",fprice:6,fcount:100,remark:"dd"},
+                        {fname:"梨子",fprice:4,fcount:100,remark:"dd"}
+                    ]
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="div0">
+    <span>{{msg}}</span>
+    <!--绑定-->
+    <!--<input type="text" v-bind:value="uname">-->
+    <input type="text" :value="uname">
+    <br/>
+    <!--双向绑定-->
+    <!--<input type="text" v-model:value="msg">-->
+    <input type="text" v-model="msg">
+    <input type="text" v-model.trim="msg">
+    <br/>
+    <!--条件渲染,之间不能加入其他节点-->
+    <input type="text" v-model="num">
+    <div v-if="num%2==0" style="width: 200px; height: 200px; background-color: cornflowerblue;">&nbsp;</div>
+    <div v-else="num%2==0" style="width: 200px; height: 200px; background-color: aquamarine;">&nbsp;</div>
+    <br/>
+    <!--控制display属性-->
+    <div v-show="num%2==0" style="width: 200px; height: 200px; background-color:mediumpurple;">&nbsp;</div>
+    <br/>
+    <!--迭代-->
+    <table>
+        <tr>
+            <th>名称</th>
+            <th>单价</th>
+            <th>库存</th>
+            <th>备注</th>
+        </tr>
+        <tr v-for="fruit in fruitList">
+            <td>{{fruit.fname}}</td>
+            <td>{{fruit.fprice}}</td>
+            <td>{{fruit.fcount}}</td>
+            <td>{{fruit.remark}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

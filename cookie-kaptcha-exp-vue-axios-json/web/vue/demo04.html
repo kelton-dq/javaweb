@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://unpkg.com/vue@next"></script>-->
+    <!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+    <script language="JavaScript" src="../script/vue.js"></script>
+    <script language="JavaScript" src="../script/axios.min.js"></script>
+    <script language="JavaScript">
+        window.onload = function () {
+            var vue = new Vue({
+                "el": "#div0",
+                data: {
+                    uname:"dd",
+                    pwd:"ok"
+                },
+                "methods":{
+                    axios01:function () {
+                        axios({
+                            method:"POST",
+                            url:"/axios01.do",
+                            params:{
+                                uname:vue.uname,
+                                pwd:vue.pwd
+                            }
+                        })
+                            .then(function (value) {
+                                console.log(value.data);
+                            })
+                            .catch(function (reason) {
+                                console.log(reason);
+                            })
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="div0">
+    uname:<input type="text" v-model="uname"><br/>
+    pwd:<input type="text" v-model="pwd"><br/>
+    <input type="button" value="提交" @click="axios01"><br/>
+</div>
+</body>
+</html>

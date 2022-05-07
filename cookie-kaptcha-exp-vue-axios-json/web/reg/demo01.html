@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript">
+        var reg = /abc/gi;//全局，忽略大小写
+        var str = "abcdefgABc";
+        var res = reg.test(str);
+        str = str.replace(reg, "_");
+        console.log(res);
+        console.log(str);
+
+        reg = /abc$/m;//多行
+        var s = "abc\ndef";
+        console.log(reg.test(s));
+
+        //1.模式验证
+        // 创建一个最简单的正则表达式对象
+        reg = /o/;
+        // 创建一个字符串对象作为目标字符串
+        str = 'Hello World!';
+        // 调用正则表达式对象的test()方法验证目标字符串是否满足我们指定的这个模式，返回结果true
+        console.log("字符串中是否包含'o'="+reg.test(str));
+
+        //2.匹配读取
+        //匹配读取: 读取一个字符串中的所有'l'字母
+        // g表示全文查找,如果不使用g那么就只能查找到第一个匹配的内容
+        //编写一个正则表达式
+        var reg2 = /l/g;
+        //使用正则表达式去读取字符串
+        var arr = str.match(reg2);
+        console.log(arr);
+
+        //3.匹配替换
+        var newStr = str.replace(reg,'@');
+        // 只有第一个o被替换了，说明我们这个正则表达式只能匹配第一个满足的字符串
+        console.log("str.replace(reg)="+newStr);//Hell@ World!
+        // 原字符串并没有变化，只是返回了一个新字符串
+        console.log("str="+str);//str=Hello World!
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

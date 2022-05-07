@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户端发送json数据格式</title>
+    <!--<script src="https://unpkg.com/vue@next"></script>-->
+    <!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+    <script language="JavaScript" src="../script/vue.js"></script>
+    <script language="JavaScript" src="../script/axios.min.js"></script>
+    <script language="JavaScript">
+        window.onload = function () {
+            var vue = new Vue({
+                "el": "#div0",
+                data: {
+                    uname: "dd",
+                    pwd: "ok"
+                },
+                "methods": {
+                    axios02: function () {
+                        axios({
+                            method: "POST",
+                            url: "/axios02.do",
+                            /*params:{
+                                uname:vue.uname,
+                                pwd:vue.pwd
+                            }*/
+                            data: {
+                                uname: vue.uname,
+                                pwd: vue.pwd
+                            }
+                        })
+                            .then(function (value) {
+                                console.log(value.data);
+                                vue.uname = value.data.uname;
+                                vue.pwd = value.data.pwd;
+                                //js Object -> json String
+                                // JSON.stringify();
+                                //json String -> js Object
+                                // JSON.parse();
+                            })
+                            .catch(function (reason) {
+                                console.log(reason);
+                            })
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="div0">
+    uname:<input type="text" v-model="uname"><br/>
+    pwd:<input type="text" v-model="pwd"><br/>
+    <input type="button" value="提交" @click="axios02"><br/>
+</div>
+</body>
+</html>
